@@ -1,0 +1,528 @@
+\documentclass{scrreprt}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage{graphicx}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor, soul, colortbl}
+\usepackage{enumitem}
+\hypersetup{
+    pdftitle={Development Planning Document},    
+    colorlinks=true,      
+    linkcolor=black,       
+    citecolor=black,       
+    filecolor=black,        
+    urlcolor=black           
+}
+\def\myversion{1.0 }
+\date{}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\scr@startchapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+%
+% IMPORTANT NOTE. Any comments that are prefixed by a single percent sign (i.e. %) have been 
+% written by your lecturers. Any comments that are prefixed by two percent signs (i.e. %%) 
+% contain snippets copied and pasted from the Overleaf documentation. These comments also 
+% include the URL for these articles so that you can learn more about each LaTeX feature. 
+%
+
+% Starting the document
+\begin{document}
+
+% Creating the title page
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{DEVELOPMENT PLANNING \\DOCUMENT}\\
+        \vspace{1.5cm}
+        for\\
+        \vspace{1.5cm}
+        Encost Smart Graph Project\\
+        \vspace{1.5cm}
+        \LARGE{Version \myversion}\\
+        \vspace{1.5cm}
+        Prepared by: \hl{Kyle Whelan}\\
+        SoftFlux Engineer \\
+        \vspace{1.5cm}
+        SoftFlux \\
+        \vspace{1.5cm}
+        \today\\
+    \end{bfseries}
+\end{flushright}
+
+%% In a LATEX document the table of contents can be automatically generated, and modified to fit a specific style, this article explains how: https://www.overleaf.com/learn/latex/Table_of_contents
+\tableofcontents
+
+%% Sometimes it is necessary to have more control over the layout of the document; and for this reason this article explains how to insert line breaks, page breaks and arbitrary blank spaces. https://www.overleaf.com/learn/latex/Line_breaks_and_blank_spaces
+\newpage
+
+
+% Starting the main body of the document
+% I usually use three lines of empty comments to denote Chapters, two lines of empty comments to denote sections, and one line of empty comments to denote subsections -- this helps to break up the document and make it easier to parse. This is a personal preference so you may love it and keep it, or hate it and remove it. Regardless, your document should be clean, tidy, consistent, and easy to read.  
+
+
+% 
+% 
+%
+\chapter{Introduction/Purpose}
+
+% 
+% 
+\section{Purpose}
+
+The purpose of this document is to keep track of where we're at with the sprints and the product backlogs. This should help the project managers keep up-to-date with the work thats going on, as well as allowing the clients to see what we're doing, and where their money is going. We will be following the SCRUM format for each of our backlogs and sprints, as well as breaking down what everything does, and why we need it.
+
+It also serves to help our software engineers pick up the project faster, as they have an organised document that properly covers and documents our clients project.
+
+% 
+% 
+\section{Document Conventions}
+
+The document will use the following conventions:
+\begin{itemize}
+    \item Client: Encost
+    \item FSTP: Functional Software Test Plan
+    \item ESGP: Encost Smart Graph Project
+    \item ESHD:  Encost Smart Homes Dataset
+\end{itemize}
+
+% 
+% 
+\section{Intended Audience and Reading Suggestions}
+
+This document is intended primarily for our software engineers, and project managers, I've provided the use case for each of these types below:
+\begin{itemize}
+    \item Software Engineers: Our software engineers will use this document to help the better understand how the program works, as well as using it as a resource for what each method/class is intended for.  
+    \item Project Manager: The project managers will use this document to keep track of the sprints, and make sure the project is moving along at a correct pace
+\end{itemize}
+
+% 
+% 
+\section{Project Scope}
+
+The scope of this project is to cover all the sprints for implementing the methods based on the JUnit test cases that have already been provided, we will be going over each backlog and sprint in an itemised, detail orientated manner.
+
+% 
+% 
+% 
+
+
+% 
+% 
+% 
+\chapter{Product Backlog}
+
+% 
+% 
+% 
+\chapter{Sprint Details}
+
+
+% 
+% 
+\section{Sprint \#1 $<$May 01, 2024 to May 07, 2024$>$}
+
+% 
+\subsection{Product Backlog Items}
+The following product backlog items will be included in our first sprint:
+
+\begin{itemize}
+    \item Implement Feature Options Display for Encost Verified User
+    \begin{itemize}
+        \item Requirement Description: An Encost verified user, needs to be able to see specific feature options available to them so that they can interact with the software effectively.
+        \item Acceptance Criteria: When the user is identified as an Encost Verified user, the application will display the following options: 1. Graph Visualization, 2. Upload Custom Dataset, 3. View Summary Statistics. Corresponding ui menus will be displayed for each option when selected.
+    \end{itemize}
+    \item Create/Set Up Project Repository and Initial Structure
+    \begin{itemize}
+        \item Requirement Description: We need to set up the project repository and initial structure to facilitate the development process.
+        \item Acceptance Criteria: A new GitLab repository is created with a basic project structure in place.
+    \end{itemize}
+\end{itemize}
+% 
+\subsection{Sprint Tasks}
+The backlog items are broken down into the following achievable software development tasks:
+
+\begin{itemize}
+    \item Task 1: Set Up The Github Project Repository
+    \begin{itemize}
+        \item Task 1.1: Create a new Github repository for the project.
+        \item Task 1.2: Set up the projects skeleton (folders, all required files, etc)
+    \end{itemize}
+    \item Task 2: Develop the "FeatureAccessService" class
+    \begin{itemize}
+        \item Task 2.1: Implement the displayFeatureOptions method to handle the different Encost  user types.
+        \item Task 2.2: Create mock User classes and UserType enums for testing purposes (because certain rolls won't have access to certain features).
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Software Design}
+
+\centering
+\includegraphics[width=0.5\linewidth]{Sprint1.png}
+
+The above diagram shows the relationship between our method, the User, and the UserTypes.
+
+\begin{table}[h!]
+\begin{tabular}{|p{0.25\linewidth}
+                |p{0.1\linewidth}
+                |p{0.45\linewidth}
+                |p{0.1\linewidth}|}
+    \hline
+    Test Case ID & Description       & Expected Outcome \\
+    \hline
+    1     &   Display options to our verified users   &  Displayed the following UI options: 1. Graph Visualization, 2. Upload Custom Dataset, 3. View Summary Statistics\\
+    \hline
+    2     &   Correct UI for graph visualisation option   &          Graph visualisation UI displayed on screen          \\
+    \hline
+    3     &   Correct UI for upload custom dataset option   &          Custom dataset UI displayed on screen          \\
+    \hline
+    4    &   Correct UI for view summary statistics option   &        Summary statistics UI displayed on screen            \\
+    \hline
+\end{tabular}
+\end{table}
+
+% 
+\subsection{Software Testing}
+
+\begin{itemize}
+    \item All Tasks: Passed: Each user is shown the correct options, and each sub-menu correctly takes in the users input, and displays their sub-sections accordinly
+\end{itemize}
+% 
+\subsection{Sprint Task Completion}
+
+The status of the following tasks all need to be completed at the end of the sprint, as this section creates the core of our application, allowing users to navigate through the app, as well as restricting and limiting content to specific users. Therefore the status of each task should look as follows:
+
+\begin{itemize}
+    \item Task 1.1: Completed
+    \item Task 1.2: Completed
+    \item Task 2.1: Completed
+    \item Task 2.2: Completed
+\end{itemize}
+
+% 
+% 
+\section{Sprint \#2 $<$May 08, 2024 to May 13, 2024$>$}
+
+% 
+\subsection{Product Backlog Items}
+The product backlog items for this sprint are as follows:
+
+\begin{itemize}
+    \item Implement the Login Service Test class
+    \begin{itemize}
+        \item Requirement Description: This class is to help us manage users logging in and out
+        \item Acceptance Criteria: Users can successfully log in and log out of our application, as well as appropriate testing infrastructure is set up to simulate this.
+    \end{itemize}
+    \item Creating the methods for our LoginService class
+    \begin{itemize}
+        \item Requirement Description: This method will help us protect against incorrect input, empty input, as well as handling logging in our user and authenticating them.
+        \item Acceptance Criteria: We pass the unit tests for all the incorrect login combination created (space, commas, line feed, etc) as well as invalid and empty scenarios.
+    \end{itemize}
+    \item Verifying user authentication
+    \begin{itemize}
+        \item Requirement Description: We need to ensure that our LoginService, authenticateUser method also correctly handles user authentication.
+        \item Acceptance Criteria: Our authenticateUser correctly authenticates valid users, and doesn't authenticate users with invalid or empty credentials.
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Sprint Tasks}
+
+\begin{itemize}
+    \item Task 1: Setup the infrastructure for the LoginService class.
+    \begin{itemize}
+        \item Task 1.1: Read the users input.
+        \item Task 1.2: Make sure we have both username and password.
+    \end{itemize}
+    \item Task 2: Writing and Executing Unit Tests for our LoginService class
+    \begin{itemize}
+        \item Task 2.1: Write the method that will properly cover all input all the input options.
+    \end{itemize}
+    \item Task 3: Verifying User Authentication
+    \begin{itemize}
+        \item Task 3.1: Write our authenticateUser() method which will authenticate valid credentials, and deny invalid credentials.
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Software Design}
+
+\begin{table}[h!]
+\begin{tabular}{|p{0.25\linewidth}
+                |p{0.1\linewidth}
+                |p{0.45\linewidth}
+                |p{0.1\linewidth}|}
+    \hline
+    Methods & Description \\
+    \hline
+    promptLogin     &   Displays the message to the screen asking the user to login, splits the login information, and then authenticates it. \\
+    \hline
+    authenticateUser     &    checks to make sure the user entered a valid username and password (currently just auto-accepts if we have a username). \\
+    \hline
+\end{tabular}
+\end{table}
+
+\subsection{Software Testing}
+
+Below is the results of all the unit tests that were completed during this sprint:
+
+\begin{itemize}
+    \item promptLoginTestWithSpaceDelimiter:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system processes valid credentials separated by a space delimiter and moves to authentication.
+    \end{itemize}
+    \item promptLoginTestWithLineFeedDelimiter:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system identifies credentials separated by a line feed as invalid.
+    \end{itemize}
+    \item promptLoginTestWithCommaDelimiter:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system processes valid credentials separated by a comma delimiter and moves to authentication.
+    \end{itemize}
+    \item promptLoginTestWithPipeDelimiter:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system processes valid credentials separated by a pipe delimiter and moves to authentication.
+    \end{itemize}
+    \item promptLoginTestWithInvalidInput:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system correctly identifies input without a delimiter as invalid.
+    \end{itemize}
+    \item promptLoginTestWithEmptyInput:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system correctly identifies empty input as invalid.
+    \end{itemize}
+    \item authenticateUserTestValidCredentials:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system successfully authenticates with valid credentials.
+    \end{itemize}
+    \item authenticateUserTestInvalidCredentials:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system fails to authenticate with invalid credentials.
+    \end{itemize}
+    \item authenticateUserEmptyCredentials:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system fails to authenticate with empty credentials.
+    \end{itemize}
+\end{itemize}
+
+
+% 
+\subsection{Sprint Task Completion}
+As this is another core part of the application, its important that all these methods get completed before moving onto the next sprint, we don't want anything rolling over, therefore the status of each task in this sprint is as follows:
+
+\begin{itemize}
+    \item Task 1.1: Completed
+    \item Task 1.2: Completed
+    \item Task 2.1: Completed
+    \item Task 3.1: Completed
+    \item Task 3.2: Completed
+    \item Task 3.3: Completed
+\end{itemize}
+
+% 
+% 
+\section{Sprint \#3 $<$May 14, 2024 to May 20, 2024$>$}
+
+% 
+\subsection{Product Backlog Items}
+
+The following is an itemised list of backlog items that are required for this sprint:
+
+\begin{itemize}
+    \item Implement the DataSet class
+    \begin{itemize}
+        \item Requirement Description: This class will ensure reliable file handling and data validation
+        \item Acceptance Criteria: The class will cleanly and successfully validiate correct data, as well as handle incorrect data accordingly. The class will also handle reading and managing whatever files the user submits, making sure they're to the same standard as the current ESHDs.
+    \end{itemize}
+    \item Write the methods for our unit tests for our DataSetTest class
+    \begin{itemize}
+        \item Requirement Description: Create all the required methods inside our dataset class that ensures all test cases are met in the DataSetTest class
+        \item Acceptance Criteria: We pass the unit tests for setting the dataset with valid and invalid file paths, checking the format of the dataset, and validating the data is all there (not missing or corrupt)
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Sprint Tasks}
+
+\begin{itemize}
+    \item Task 1: Implementing our DataSet Class.
+    \begin{itemize}
+        \item Task 1.1: Initialize the DataSet before each test.
+        \item Task 1.2: Define/Direct it to the path for data set.
+    \end{itemize}
+    \item Task 2: Writing and Executing methods for our DataSet class
+    \begin{itemize}
+        \item Task 2.1: Write the method for setting the dataset.
+        \item Task 2.1: Write the method for checking the formatting of our dataset.
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Software Design}
+
+\begin{table}[h!]
+\begin{tabular}{|p{0.25\linewidth}
+                |p{0.1\linewidth}
+                |p{0.45\linewidth}
+                |p{0.1\linewidth}|}
+    \hline
+    Methods & Description \\
+    \hline
+    setDataSet     &   Reads, lightly validates and sets the dataset that was submitted by the user. \\
+    \hline
+    checkFormat     &    Ensures the dataset is in the correct format. \\
+    \hline
+\end{tabular}
+\end{table}
+
+% 
+\subsection{Software Testing}
+
+Below is the results of all the unit tests that were completed during this sprint:
+
+\begin{itemize}
+    \item setDatasetTestWithValidFilePath:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system correctly sets and retrieves a valid dataset file.
+    \end{itemize}
+    \item setDatasetTestWithInvalidFilePath:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system throws an appropriate error when an invalid file path is provided.
+    \end{itemize}
+    \item checkFormatWithValidFile:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system correctly validates the format of a valid dataset file.
+    \end{itemize}
+    \item checkFormatLoadingWithCorruptedFile:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system reports an error when attempting to process a corrupted dataset file.
+    \end{itemize}
+    \item checkFormatWithPartiallyMissingData:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Confirms the system correctly handles or reports errors for a dataset with partially missing data.
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Sprint Task Completion}
+
+Below is the status of each task at the end of the sprint:
+
+\begin{itemize}
+    \item Task 1.1: Completed
+    \item Task 1.2: Completed
+    \item Task 2.1: Completed
+    \item Task 2.2: Completed
+    \item Task 2.3: Completed
+    \item Task 2.4: Completed
+    \item Task 2.5: Completed
+\end{itemize}
+
+No tasks need to be rolled over into the next sprint. The DataSetTest class is fully implemented and has passed all test cases, ensuring reliable file handling and data validation in the DataSet class.
+
+% 
+% 
+\section{Sprint \#4 $<$May 21, 2024 to May 22, 2024$>$}
+
+% 
+\subsection{Product Backlog Items}
+
+The following are the backlog items for our final sprint:
+
+\begin{itemize}
+    \item Enhancing the User Class
+    \begin{itemize}
+        \item Requirement Description: Ensure that our User class successfully covers all bases, and properly protects against invalid inputs.
+        \item Acceptance Criteria: Protection is put in place to cover edge cases, and boundary conditions, as well as tests that successfully verify the systems behaviour for all the user types.
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Sprint Tasks}
+
+\begin{itemize}
+    \item Task 1: Enhancing our User Class.
+    \begin{itemize}
+        \item Task 1.1: Add checks for any invalid, or illegal arguments in the setUserType method.
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Software Design}
+
+\begin{table}[h!]
+\begin{tabular}{|p{0.25\linewidth}
+                |p{0.1\linewidth}
+                |p{0.45\linewidth}
+                |p{0.1\linewidth}|}
+    \hline
+    Methods & Description \\
+    \hline
+    setUserType       &   Validates the users inputted usertype against the enum of datatypes, if not valid, it will fail and inform the user. \\
+    \hline
+\end{tabular}
+\end{table}
+
+% 
+\subsection{Software Testing}
+
+Below is the results of all the unit tests that were completed during this sprint:
+
+\begin{itemize}
+    \item getUserTypeTestInvalidType:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Successfully caught and handled an invalid user type.
+    \end{itemize}
+    \item getUserTypeTestEncostUnverifiedType:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Successfully caught and handled an unverified user type.
+    \end{itemize}
+    \item getUserTypeTestEncostType:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Successfully caught and handled a verified user type.
+    \end{itemize}
+    \item getUserTypeTestCommunityType:
+    \begin{itemize}
+        \item Status: Passed.
+        \item Description: Successfully caught and handled a community user type.
+    \end{itemize}
+\end{itemize}
+
+% 
+\subsection{Sprint Task Completion}
+
+Below is the status of each task at the end of the sprint:
+
+\begin{itemize}
+    \item Task 1.1: Completed
+\end{itemize}
+
+No tasks needed to be carried over, as this was the final sprint, and was only here to verify every login condition was accounted for.
+
+% 
+% 
+% 
+
+
+\end{document}
